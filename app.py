@@ -56,7 +56,6 @@ st.markdown("""
     [data-testid="stSelectbox"] label {
         color: #00ff00 !important;
     }
-    /* Dropdown options */
     [data-baseweb="select"] {
         background-color: #000000 !important;
     }
@@ -114,7 +113,7 @@ st.markdown("""
         border-color: #003300 !important;
     }
 
-    /* Success / Info / Warning / Error блоки — не трогаем цвета роста/падения */
+    /* Success / Info / Warning / Error */
     [data-testid="stSuccess"] {
         background-color: #001a00 !important;
         border: 1px solid #00ff00 !important;
@@ -141,15 +140,35 @@ st.markdown("""
         color: #00ff00 !important;
     }
 
-    /* Toolbar / header */
-    [data-testid="stHeader"] {
-        background-color: #000000 !important;
+    /* ─── СКРЫВАЕМ GITHUB / МЕНЮ / ФУТЕР ─── */
+    #MainMenu {
+        display: none !important;
+    }
+    footer {
+        display: none !important;
     }
     [data-testid="stToolbar"] {
-        background-color: #000000 !important;
+        display: none !important;
     }
+    [data-testid="stDeployButton"] {
+        display: none !important;
+    }
+    [data-testid="stHeader"] {
+        display: none !important;
+    }
+    /* Доп. селекторы на случай обновления Streamlit */
+    .stActionButton {
+        display: none !important;
+    }
+    button[title="View app in fullscreen"] {
+        display: none !important;
+    }
+    button[title="Open GitHub repository"] {
+        display: none !important;
+    }
+    /* ─────────────────────────────────────── */
 
-    /* Bar chart — переопределяем через обёртку */
+    /* Bar chart */
     [data-testid="stArrowVegaLiteChart"] canvas {
         filter: hue-rotate(85deg) saturate(3) brightness(1.2);
     }
@@ -190,7 +209,7 @@ st.markdown("""
         50%       { opacity: 0; }
     }
 
-    /* Заголовок страницы — шпионский стиль */
+    /* Заголовок */
     .spy-title {
         font-family: 'Share Tech Mono', monospace;
         color: #00ff00;
@@ -207,6 +226,7 @@ st.markdown("""
         letter-spacing: 1px;
         font-size: 0.85em;
     }
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -261,7 +281,6 @@ coin = st.selectbox("ВЫБЕРИ ЦЕЛЬ:", list(COINS.keys()))
 
 if st.button("⬛ ЗАПУСТИТЬ АНАЛИЗ", type="primary"):
 
-    # ── Терминал + расчёты ──────────────────────────────────────
     terminal_placeholder = show_terminal(coin, terminal_lines(coin), delay=0.28)
 
     pred = predict_tomorrow(coin)
@@ -270,8 +289,6 @@ if st.button("⬛ ЗАПУСТИТЬ АНАЛИЗ", type="primary"):
     hc   = honest_check(coin)
 
     terminal_placeholder.empty()
-
-    # ── Результаты ──────────────────────────────────────────────
 
     if pred is None:
         st.error("⛔ НЕДОСТАТОЧНО ДАННЫХ ДЛЯ АНАЛИЗА")
@@ -332,4 +349,8 @@ if st.button("⬛ ЗАПУСТИТЬ АНАЛИЗ", type="primary"):
             st.warning("⚠ СИГНАЛ ПРИМЕРНО РАВЕН РАНДОМУ")
 
 st.divider()
-st.markdown("<div class='spy-caption'>> НЕ ЯВЛЯЕТСЯ ФИНАНСОВЫМ СОВЕТОМ // ПРОШЛЫЕ РЕЗУЛЬТАТЫ НЕ ГАРАНТИРУЮТ БУДУЩИЕ // CLASSIFIED</div>", unsafe_allow_html=True)
+st.markdown(
+    "<div class='spy-caption'>> НЕ ЯВЛЯЕТСЯ ФИНАНСОВЫМ СОВЕТОМ // "
+    "ПРОШЛЫЕ РЕЗУЛЬТАТЫ НЕ ГАРАНТИРУЮТ БУДУЩИЕ // CLASSIFIED</div>",
+    unsafe_allow_html=True
+)
