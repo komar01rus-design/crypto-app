@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import roc_auc_score
 
 # ─── НАСТРОЙКИ ───
-BINANCE_URL = "https://api.binance.com/api/v3/klines"
+BINANCE_URL = "https://api.binance.us/api/v3/klines"
 CACHE_DIR = "crypto_cache"
 os.makedirs(CACHE_DIR, exist_ok=True)
 START = 1000.0
