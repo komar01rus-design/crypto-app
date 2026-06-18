@@ -251,7 +251,7 @@ def terminal_lines(coin):
     return [
         "<span style='color:#005500'>╔══════════════════════════════════════════════╗</span>",
         "<span style='color:#005500'>║</span>   <span style='color:#00ff00'>CRYPTO INTELLIGENCE SYSTEM  v2.0</span>          <span style='color:#005500'>║</span>",
-        "<span style='color:#005500'>║</span>   <span style='color:#007700'>CLASSIFIED // TOP SECRET // EYES ONLY</span>     <span style='color:#005500'>║</span>",
+        "<span style='color:#005500'>║</span>   <span style='color:#007700'>CLASSIFIED </span>     <span style='color:#005500'>║</span>",
         "<span style='color:#005500'>╚══════════════════════════════════════════════╝</span>",
         "",
         f"<span style='color:#007700'>></span> Аутентификация агента... <span style='color:#00ff00'>ДОСТУП РАЗРЕШЁН</span>",
@@ -268,7 +268,7 @@ def terminal_lines(coin):
         f"<span style='color:#007700'>></span> Симуляция $1000...",
         f"<span style='color:#007700'>></span> Проверка против рандома (100 итераций)...",
         "",
-        "<span style='color:#00ff00'>✓ АНАЛИЗ ЗАВЕРШЁН — ДАННЫЕ ЗАСЕКРЕЧЕНЫ — ВЫВОД РЕЗУЛЬТАТОВ...</span>",
+        "<span style='color:#00ff00'>✓ АНАЛИЗ ЗАВЕРШЁН  — ВЫВОД РЕЗУЛЬТАТОВ...</span>",
     ]
 
 
